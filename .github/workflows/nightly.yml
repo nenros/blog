@@ -1,8 +1,6 @@
 name: nightly
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
+on: workflow_dispatch
 
 jobs:
   upgrade:
@@ -11,7 +9,7 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=4096'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
