@@ -5,6 +5,9 @@ on: workflow_dispatch
 jobs:
   upgrade:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
     steps:
