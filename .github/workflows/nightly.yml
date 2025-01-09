@@ -13,29 +13,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Upgrade Astro
-        run: pnpm dlx @astrojs/upgrade --yes
+        run: npx @astrojs/upgrade
 
       - name: PR Changes
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
           branch: ci/update-astro
           commit-message: 'ci: update Astro'
-          assignees: eliancodes
+          assignees: nenros
           title: 'ci: update Astro'
           body: Update Astro and packages to latest version
           labels: ci
