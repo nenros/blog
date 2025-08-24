@@ -1,9 +1,5 @@
 name: nightly
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
-
 jobs:
   upgrade:
     runs-on: ubuntu-latest
